@@ -39,8 +39,8 @@ function webpconvert_gd($source, $destination, $quality, $strip_metadata) {
 
   // This is a hack solves bug with imagewebp
   // - Got it here: https://stackoverflow.com/questions/30078090/imagewebp-php-creates-corrupted-webp-files
-  if (filesize($source) % 2 == 1) {
-    file_put_contents($source, "\0", FILE_APPEND);
+  if (filesize($destination) % 2 == 1) {
+    file_put_contents($destination, "\0", FILE_APPEND);
   }
 
   // Hm... sometimes I get completely transparent images, even with the hack above. Help, anybody?
